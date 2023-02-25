@@ -6,18 +6,18 @@ import vertex from "./vertex.glsl";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
+const { innerWidth, innerHeight } = window;
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000,
+  50,
+  innerWidth / innerHeight,
 );
 camera.position.set(-1.5, 1.5, 3.0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(innerWidth, innerHeight);
 app.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
