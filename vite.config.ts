@@ -1,7 +1,7 @@
-import glslify from 'vite-plugin-glslify'
+import glslify from "vite-plugin-glslify";
 
 export default {
   plugins: [
-    glslify()
+    glslify(),
   ],
-}
+};
