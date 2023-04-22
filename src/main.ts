@@ -1,24 +1,21 @@
-import "./style.css";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import fragment from "./fragment.glsl";
 import vertex from "./vertex.glsl";
-
-const app = document.querySelector<HTMLDivElement>("#app")!;
+import "./style.css";
 
 const { innerWidth, innerHeight } = window;
+const container = document.querySelector<HTMLDivElement>("#app");
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  50,
-  innerWidth / innerHeight,
-);
+const aspect = innerWidth / innerHeight;
+const camera = new THREE.PerspectiveCamera(50, aspect);
 camera.position.set(-1.5, 1.5, 3.0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(innerWidth, innerHeight);
-app.appendChild(renderer.domElement);
+if (container) container.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.addEventListener("change", render);
@@ -40,8 +37,9 @@ function render() {
 }
 
 window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const { innerWidth, innerHeight } = window;
+  camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(innerWidth, innerHeight);
   render();
 });
