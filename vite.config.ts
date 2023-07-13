@@ -2,9 +2,7 @@ import { defineConfig } from "vite";
 import { glslify } from "vite-plugin-glslify";
 
 export default defineConfig({
-  plugins: [
-    glslify(),
-  ],
+  base: "./",
   build: {
     rollupOptions: {
       external: [
@@ -14,4 +12,7 @@ export default defineConfig({
       ],
     },
   },
+  plugins: [
+    glslify(),
+  ],
 });
