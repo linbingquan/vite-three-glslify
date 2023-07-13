@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/three": "^0.150.2",
-    "typescript": "^5.0.4",
-    "vite": "^4.3.1",
-    "vite-plugin-glslify": "^2.0.1"
+    "@types/three": "^0.154.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.3",
+    "vite-plugin-glslify": "^2.0.2"
   },
   "dependencies": {
     "glsl-aastep": "^1.0.1",
@@ -21,6 +21,6 @@
     "glsl-hash-blur": "^1.0.3",
     "glsl-noise": "^0.0.0",
     "glsl-random": "^0.0.5",
-    "three": "^0.151.3"
+    "three": "^0.154.0"
   }
 }
